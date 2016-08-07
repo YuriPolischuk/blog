@@ -2,9 +2,10 @@
 
 use yii\helpers\Html;
 use yii\widgets\DetailView;
+use common\models\Post;
 
 /* @var $this yii\web\View */
-/* @var $model backend\models\Post */
+/* @var $model common\models\Post */
 
 $this->title = $model->title;
 $this->params['breadcrumbs'][] = ['label' => 'Posts', 'url' => ['index']];

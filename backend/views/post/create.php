@@ -1,10 +1,11 @@
 <?php
 
 use yii\helpers\Html;
-
+use backend\controllers\PostController;
+use common\models\Post;
 
 /* @var $this yii\web\View */
-/* @var $model backend\models\Post */
+/* @var $model common\models\Post */
 
 $this->title = 'Create Post';
 $this->params['breadcrumbs'][] = ['label' => 'Posts', 'url' => ['index']];
@@ -16,6 +17,7 @@ $this->params['breadcrumbs'][] = $this->title;
 
     <?= $this->render('_form', [
         'model' => $model,
+        'category' => $category
     ]) ?>
 
 </div>

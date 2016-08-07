@@ -2,10 +2,14 @@
 
 use yii\helpers\Html;
 use yii\widgets\ActiveForm;
+use yii\helpers\ArrayHelper;
+use common\models\Post;
+use backend\controllers\PostController;
 
 /* @var $this yii\web\View */
-/* @var $model backend\models\Post */
+/* @var $model common\models\Post */
 /* @var $form yii\widgets\ActiveForm */
+
 ?>
 
 <div class="post-form">
@@ -18,7 +22,8 @@ use yii\widgets\ActiveForm;
 
     <?= $form->field($model, 'content')->textarea(['rows' => 6]) ?>
 
-    <?= $form->field($model, 'category_id')->textInput() ?>
+    <?= $form->field($model, 'category_id')->dropDownList(
+        ArrayHelper::map($category, 'id', 'title')) ?>
 
     <?= $form->field($model, 'author_id')->textInput() ?>
 

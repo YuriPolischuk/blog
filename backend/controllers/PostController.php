@@ -8,6 +8,8 @@ use yii\data\ActiveDataProvider;
 use yii\web\Controller;
 use yii\web\NotFoundHttpException;
 use yii\filters\VerbFilter;
+use common\models\Category;
+
 
 /**
  * PostController implements the CRUD actions for Post model.
@@ -53,6 +55,7 @@ class PostController extends Controller
     {
         return $this->render('view', [
             'model' => $this->findModel($id),
+            'category' => $this->findModel($id)
         ]);
     }
 
@@ -70,6 +73,8 @@ class PostController extends Controller
         } else {
             return $this->render('create', [
                 'model' => $model,
+                'category' => Category::find()->all(),
+
             ]);
         }
     }
@@ -89,6 +94,7 @@ class PostController extends Controller
         } else {
             return $this->render('update', [
                 'model' => $model,
+                'category' => Category::find()->all()
             ]);
         }
     }
