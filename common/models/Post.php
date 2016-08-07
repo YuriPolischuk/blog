@@ -1,6 +1,6 @@
 <?php
 
-namespace frontend\models;
+namespace common\models;
 
 use Yii;
 
@@ -16,8 +16,8 @@ use Yii;
  * @property string $publish_status
  * @property string $publish_date
  *
- * @property TblUser $author
- * @property TblCategory $category
+ * @property User $author
+ * @property Category $category
  */
 class Post extends \yii\db\ActiveRecord
 {
