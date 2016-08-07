@@ -4,11 +4,11 @@ namespace backend\controllers;
 
 use Yii;
 use common\models\Post;
+use common\models\Category;
 use yii\data\ActiveDataProvider;
 use yii\web\Controller;
 use yii\web\NotFoundHttpException;
 use yii\filters\VerbFilter;
-use common\models\Category;
 
 
 /**
@@ -54,8 +54,7 @@ class PostController extends Controller
     public function actionView($id)
     {
         return $this->render('view', [
-            'model' => $this->findModel($id),
-            'category' => $this->findModel($id)
+            'model' => $this->findModel($id)
         ]);
     }
 
@@ -72,9 +71,7 @@ class PostController extends Controller
             return $this->redirect(['view', 'id' => $model->id]);
         } else {
             return $this->render('create', [
-                'model' => $model,
-                'category' => Category::find()->all(),
-
+                'model' => $model
             ]);
         }
     }
@@ -93,8 +90,7 @@ class PostController extends Controller
             return $this->redirect(['view', 'id' => $model->id]);
         } else {
             return $this->render('update', [
-                'model' => $model,
-                'category' => Category::find()->all()
+                'model' => $model
             ]);
         }
     }

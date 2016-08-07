@@ -14,7 +14,7 @@ use Yii;
  * @property string $nickname
  * @property string $about
  *
- * @property Post[] $tblPosts
+ * @property Post[] $Posts
  */
 class User extends \yii\db\ActiveRecord
 {
@@ -58,7 +58,7 @@ class User extends \yii\db\ActiveRecord
     /**
      * @return \yii\db\ActiveQuery
      */
-    public function getTblPosts()
+    public function getPosts()
     {
         return $this->hasMany(Post::className(), ['author_id' => 'id']);
     }
