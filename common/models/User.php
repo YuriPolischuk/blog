@@ -3,6 +3,8 @@
 namespace common\models;
 
 use Yii;
+use yii\web\IdentityInterface;
+use yii\db\ActiveRecord;
 
 /**
  * This is the model class for table "tbl_user".
@@ -11,13 +13,13 @@ use Yii;
  * @property string $login
  * @property string $password
  * @property string $email
- * @property string $nickname
- * @property string $about
+ * @property integer $role
  *
  * @property Post[] $Posts
  */
-class User extends \yii\db\ActiveRecord
+class User extends \yii\db\ActiveRecord 
 {
+
     /**
      * @inheritdoc
      */
@@ -32,11 +34,10 @@ class User extends \yii\db\ActiveRecord
     public function rules()
     {
         return [
-            [['login', 'password', 'email', 'nickname'], 'required'],
-            [['about'], 'string'],
+            [['login', 'password', 'email', 'role'], 'required'],
+            [['role'], 'integer'],
             [['login'], 'string', 'max' => 40],
             [['password', 'email'], 'string', 'max' => 100],
-            [['nickname'], 'string', 'max' => 255],
         ];
     }
 
@@ -50,15 +51,14 @@ class User extends \yii\db\ActiveRecord
             'login' => 'Login',
             'password' => 'Password',
             'email' => 'Email',
-            'nickname' => 'Nickname',
-            'about' => 'About',
+            'role' => 'Role',
         ];
     }
 
     /**
      * @return \yii\db\ActiveQuery
      */
-    public function getPosts()
+    public function getTblPosts()
     {
         return $this->hasMany(Post::className(), ['author_id' => 'id']);
     }
