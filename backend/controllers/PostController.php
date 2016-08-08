@@ -71,7 +71,8 @@ class PostController extends Controller
             return $this->redirect(['view', 'id' => $model->id]);
         } else {
             return $this->render('create', [
-                'model' => $model
+                'model' => $model,
+                'category' => Category::find()->all()
             ]);
         }
     }
@@ -90,7 +91,8 @@ class PostController extends Controller
             return $this->redirect(['view', 'id' => $model->id]);
         } else {
             return $this->render('update', [
-                'model' => $model
+                'model' => $model,
+                'category' => Category::find()->all()
             ]);
         }
     }

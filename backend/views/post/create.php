@@ -5,7 +5,7 @@ use common\models\Post;
 
 /* @var $this yii\web\View */
 /* @var $model common\models\Post */
-/* @var $model common\models\Category */
+/* @var $category yii\db\ActiveRecord[] */
 
 
 $this->title = 'Create Post';
@@ -17,7 +17,8 @@ $this->params['breadcrumbs'][] = $this->title;
     <h1><?= Html::encode($this->title) ?></h1>
 
     <?= $this->render('_form', [
-        'model' => $model
+        'model' => $model,
+        'category' => $category
     ]) ?>
 
 </div>

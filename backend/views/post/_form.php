@@ -8,6 +8,7 @@ use common\models\Post;
 /* @var $this yii\web\View */
 /* @var $model common\models\Post */
 /* @var $form yii\widgets\ActiveForm */
+/* @var $category yii\db\ActiveRecord[] */
 
 ?>
 
@@ -21,7 +22,9 @@ use common\models\Post;
 
     <?= $form->field($model, 'content')->textarea(['rows' => 6]) ?>
 
-    <?= $form->field($model, 'category_id')->textInput(['maxlength' => 10]) ?>
+    <?= $form->field($model, 'category_id')->dropDownList(
+        ArrayHelper::map($category, 'id', 'title')
+    ) ?>
 
     <?= $form->field($model, 'author_id')->textInput() ?>
 
